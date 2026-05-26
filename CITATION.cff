@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated eLife paper."
+title: "Computational mechanisms for temporal integration in the anterior claustrum"
+authors:
+  - family-names: Sohn
+    given-names: Kuenbae
+  - family-names: Yoon
+    given-names: Donghyeon
+  - family-names: Lee
+    given-names: Junghwa
+  - family-names: Choi
+    given-names: Sukwoo
+doi: 10.7554/eLife.109539.2
+url: "https://elifesciences.org/reviewed-preprints/109539"
+repository-code: ""
+license: MIT

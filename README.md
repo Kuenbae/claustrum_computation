@@ -1,8 +1,18 @@
 # Computational mechanisms for temporal integration in the anterior claustrum
 
-This repository contains cleaned reproduction code for the delayed-escape RNN simulations and downstream population analyses used in the manuscript.
+This repository contains cleaned reproduction code for the recurrent neural network (RNN) simulations and downstream population analyses associated with the eLife reviewed preprint:
 
-The code is organized as a final analysis workflow rather than exploratory development scripts. Non-manuscript task variants were removed. In particular, trace-conditioning and delayed-conditioning code paths are not included. Population clustering uses only the manuscript t-SNE setting:
+**Kuenbae Sohn, Donghyeon Yoon, Junghwa Lee, and Sukwoo Choi. _Computational mechanisms for temporal integration in the anterior claustrum_. eLife Reviewed Preprint 109539.**  
+Paper: <https://elifesciences.org/reviewed-preprints/109539>  
+DOI: <https://doi.org/10.7554/eLife.109539.2>
+
+Please cite the eLife paper when using this code or the associated deposited data.
+
+## Scope of this repository
+
+The code is organized as a final analysis workflow rather than as exploratory development scripts. It implements the delayed-escape RNN simulations and analyses reported in the paper, including population clustering, decoding, PCA trajectories, nonlinear trajectory prediction, PID/synergy analysis, cross-temporal decoding, biological GPFA trajectory visualization, and slice-stimulation analog simulations.
+
+Non-manuscript task variants and exploratory code paths were removed. Population clustering uses only the t-SNE setting reported in the paper:
 
 ```text
 perplexity = 24
@@ -37,8 +47,16 @@ No t-SNE parameter sweep is performed by the public workflow.
 ├── data/README.md              # Notes for external deposited data
 ├── docs/
 ├── requirements.txt
+├── LICENSE
+├── CITATION.cff
 └── .gitignore
 ```
+
+## License
+
+The software code in this repository is released under the MIT License. See [`LICENSE`](LICENSE) for details.
+
+This license applies to the code in this repository. Large generated outputs, trained weights, and experimental/source data are distributed separately through the public data archive listed in the paper's Data Availability Statement and may be governed by the license or terms of that archive.
 
 ## Python environment
 
@@ -46,7 +64,7 @@ No t-SNE parameter sweep is performed by the public workflow.
 pip install -r requirements.txt
 ```
 
-PsychRNN and TensorFlow version compatibility can be sensitive. The manuscript simulations used TensorFlow 2.1.0, so a clean virtual environment is recommended.
+PsychRNN and TensorFlow version compatibility can be sensitive. The paper simulations used TensorFlow 2.1.0, so a clean virtual environment is recommended.
 
 ## Standard generated files
 
@@ -66,7 +84,7 @@ These names are independent of local dates, machine paths, or exploratory run la
 
 ## Standard public/source-data files
 
-The additional `public_draft` analyses were folded into the workflow and expect standardized data files in `results/`:
+The additional public-source-data analyses expect standardized data files in `results/`:
 
 ```text
 results/rnn_activity_public.mat       # z-scored RNN activity for CS+Open, Open-only, and CS-only
@@ -145,7 +163,7 @@ run('matlab/run_03_pca_trajectories.m')
 run('matlab/run_04_stimulation_analysis.m')
 ```
 
-For analyses folded in from the `public_draft` package, place the standardized public data files in `results/`, then run:
+For analyses using the standardized public data files, place the files in `results/`, then run:
 
 ```matlab
 addpath(genpath('matlab'))
@@ -161,6 +179,13 @@ run('matlab/run_08_gpfa_biological_trajectories.m')
 
 The MATLAB scripts use the Statistics and Machine Learning Toolbox, including `tsne`, `kmeans`, `evalclusters`, `fitcdiscr`, and cross-validation utilities. Some optional analyses also require the Deep Learning Toolbox/Neural Network Toolbox and NeuralTraj.
 
-## Data availability note
+## Data availability
 
-Large `.mat` outputs and trained weights are not committed here. Deposit standardized generated outputs and model weights in the public archive selected for the manuscript, or regenerate them with the commands above.
+Large `.mat` outputs and trained weights are not committed here. Deposit standardized generated outputs and model weights in the public archive selected for the paper, or regenerate them with the commands above. The public archive should contain the files listed in the Standard generated files and Standard public/source-data files sections, or equivalent files using the same variable structure.
+
+## Citation
+
+```text
+Sohn K, Yoon D, Lee J, Choi S. Computational mechanisms for temporal integration in the anterior claustrum. eLife Reviewed Preprint 109539. doi:10.7554/eLife.109539.2
+```
+
